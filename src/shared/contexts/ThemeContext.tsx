@@ -5,7 +5,6 @@ import {
   useState,
   useMemo
 } from 'react'
-import { PropsWithChildren } from 'react'
 import { ThemeProvider } from '@mui/material'
 import { Box } from '@mui/system'
 
@@ -22,7 +21,7 @@ export const useAppThemeContext = () => {
   return useContext(ThemeContext)
 }
 
-export const AppThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+export const AppThemeProvider: React.FC = ({ children }) => {
   const [themeName, setThemeName] = useState<'light' | 'dark'>('light')
 
   const toggleTheme = useCallback(() => {

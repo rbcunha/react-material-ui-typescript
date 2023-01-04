@@ -11,7 +11,6 @@ import {
   useTheme
 } from '@mui/material'
 import { Box } from '@mui/system'
-import { PropsWithChildren } from 'react'
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
 
 import { useDrawerContext } from '../../contexts'
@@ -49,7 +48,7 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({
   )
 }
 
-export const MenuLateral: React.FC<PropsWithChildren> = ({ children }) => {
+export const MenuLateral: React.FC = ({ children }) => {
   const theme = useTheme()
   const smDown = useMediaQuery(theme.breakpoints.down('sm'))
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext()
