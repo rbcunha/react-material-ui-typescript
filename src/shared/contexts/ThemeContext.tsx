@@ -5,8 +5,7 @@ import {
   useState,
   useMemo
 } from 'react'
-import { ThemeProvider } from '@mui/material'
-import { Box } from '@mui/system'
+import { ThemeProvider, Box } from '@mui/material'
 
 import { DarkTheme, LightTheme } from './../themes'
 
