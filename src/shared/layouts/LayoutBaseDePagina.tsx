@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 import {
   Box,
   Icon,
@@ -6,25 +6,25 @@ import {
   Theme,
   Typography,
   useMediaQuery,
-  useTheme
-} from '@mui/material'
-import { useDrawerContext } from '../contexts'
+  useTheme,
+} from "@mui/material";
+import { useDrawerContext } from "../contexts";
 
 interface ILayoutBaseDePaginaProps {
-  titulo: string
-  barraDeFerramentas?: ReactNode
+  titulo: string;
+  barraDeFerramentas?: ReactNode;
 }
 
 export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
   children,
   titulo,
-  barraDeFerramentas
+  barraDeFerramentas,
 }) => {
-  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'))
-  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
-  const theme = useTheme()
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+  const theme = useTheme();
 
-  const { toggleDrawerOpen } = useDrawerContext()
+  const { toggleDrawerOpen } = useDrawerContext();
   return (
     <Box height="100%" display="flex" flexDirection="column" gap={1}>
       <Box
@@ -42,8 +42,8 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
         <Typography
           overflow="hidden"
           whiteSpace="nowrap"
-          textOverflow={'ellipsis'}
-          variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
+          textOverflow={"ellipsis"}
+          variant={smDown ? "h5" : mdDown ? "h4" : "h3"}
         >
           {titulo}
         </Typography>
@@ -53,5 +53,5 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
         {children}
       </Box>
     </Box>
-  )
-}
+  );
+};

@@ -9,34 +9,34 @@ import {
   ListItemIcon,
   ListItemText,
   useMediaQuery,
-  useTheme
-} from '@mui/material'
-import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
+  useTheme,
+} from "@mui/material";
+import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 
-import { useAppThemeContext, useDrawerContext } from '../../contexts'
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 interface IListItemLinkProps {
-  to: string
-  icon: string
-  label: string
-  onClick: (() => void) | undefined
+  to: string;
+  icon: string;
+  label: string;
+  onClick: (() => void) | undefined;
 }
 
 const ListItemLink: React.FC<IListItemLinkProps> = ({
   to,
   icon,
   label,
-  onClick
+  onClick,
 }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const ResolvedPath = useResolvedPath(to)
-  const match = useMatch({ path: ResolvedPath.pathname, end: false })
+  const ResolvedPath = useResolvedPath(to);
+  const match = useMatch({ path: ResolvedPath.pathname, end: false });
 
   const handleClick = () => {
-    navigate(to)
-    onClick?.()
-  }
+    navigate(to);
+    onClick?.();
+  };
 
   return (
     <ListItemButton selected={!!match} onClick={handleClick}>
@@ -45,20 +45,20 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({
       </ListItemIcon>
       <ListItemText primary={label} />
     </ListItemButton>
-  )
-}
+  );
+};
 
 export const MenuLateral: React.FC = ({ children }) => {
-  const theme = useTheme()
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'))
-  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext()
-  const { toggleTheme } = useAppThemeContext()
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   return (
     <>
       <Drawer
         open={isDrawerOpen}
-        variant={smDown ? 'temporary' : 'permanent'}
+        variant={smDown ? "temporary" : "permanent"}
         onClose={toggleDrawerOpen}
       >
         <Box
@@ -82,7 +82,7 @@ export const MenuLateral: React.FC = ({ children }) => {
           <Divider />
           <Box flex={1}>
             <List component="nav">
-              {drawerOptions.map(drawerOption => (
+              {drawerOptions.map((drawerOption) => (
                 <ListItemLink
                   to={drawerOption.path}
                   key={drawerOption.path}
@@ -109,5 +109,5 @@ export const MenuLateral: React.FC = ({ children }) => {
         {children}
       </Box>
     </>
-  )
-}
+  );
+};

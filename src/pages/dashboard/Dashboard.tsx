@@ -1,5 +1,5 @@
-import { FerramentasDeDetalhe } from '../../shared/components'
-import { LayoutBaseDePagina } from '../../shared/layouts'
+import { FerramentasDeDetalhe } from "../../shared/components";
+import { LayoutBaseDePagina } from "../../shared/layouts";
 
 export const Dashboard = () => {
   return (
@@ -11,9 +11,10 @@ export const Dashboard = () => {
           mostrarBotaoSalvarEFechar
           mostrarBotaoSalvarEFecharCarregando
           mostrarBotaoVoltar={false}
-        />}
+        />
+      }
     >
       Testando
     </LayoutBaseDePagina>
-  )
-}
+  );
+};
