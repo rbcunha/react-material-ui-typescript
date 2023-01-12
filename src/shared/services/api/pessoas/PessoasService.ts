@@ -1,14 +1,14 @@
 import { Environment } from "../../../environment";
 import { Api } from "../axios-config";
 
-interface IListagemPessoa {
+export interface IListagemPessoa {
   id: number;
   email: string;
   cidadeId: number;
   nomeCompleto: string;
 }
 
-interface IDetalhePessoa {
+export interface IDetalhePessoa {
   id: number;
   email: string;
   cidadeId: number;
@@ -88,7 +88,7 @@ const create = async (
 
 const updateById = async (id: number, dados: IDetalhePessoa): Promise<void | Error> => {
   try {
-    const { data } = await Api.put<IDetalhePessoa>(`/pessoas/${id}`, dados);
+     await Api.put(`/pessoas/${id}`, dados);
   } catch (error) {
     console.error(error);
     return new Error(
@@ -99,7 +99,7 @@ const updateById = async (id: number, dados: IDetalhePessoa): Promise<void | Err
 
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    const { data } = await Api.delete<IDetalhePessoa>(`/pessoas/${id}`);
+     await Api.delete(`/pessoas/${id}`);
   } catch (error) {
     console.error(error);
     return new Error(
@@ -110,8 +110,8 @@ const deleteById = async (id: number): Promise<void | Error> => {
 
 export const PessoasService = {
   getAll,
-  getById,
   create,
+  getById,
   updateById,
   deleteById,
 };
