@@ -10,10 +10,10 @@ import {
   ListItemText,
   useMediaQuery,
   useTheme,
-} from "@mui/material";
-import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+} from '@mui/material'
+import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
 
-import { useAppThemeContext, useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from '../../contexts'
 
 interface IListItemLinkProps {
   to: string;
@@ -28,15 +28,15 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({
   label,
   onClick,
 }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const ResolvedPath = useResolvedPath(to);
-  const match = useMatch({ path: ResolvedPath.pathname, end: false });
+  const ResolvedPath = useResolvedPath(to)
+  const match = useMatch({ path: ResolvedPath.pathname, end: false })
 
   const handleClick = () => {
-    navigate(to);
-    onClick?.();
-  };
+    navigate(to)
+    onClick?.()
+  }
 
   return (
     <ListItemButton selected={!!match} onClick={handleClick}>
@@ -45,20 +45,20 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({
       </ListItemIcon>
       <ListItemText primary={label} />
     </ListItemButton>
-  );
-};
+  )
+}
 
 export const MenuLateral: React.FC = ({ children }) => {
-  const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
-  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
-  const { toggleTheme } = useAppThemeContext();
+  const theme = useTheme()
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'))
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext()
+  const { toggleTheme } = useAppThemeContext()
 
   return (
     <>
       <Drawer
         open={isDrawerOpen}
-        variant={smDown ? "temporary" : "permanent"}
+        variant={smDown ? 'temporary' : 'permanent'}
         onClose={toggleDrawerOpen}
       >
         <Box
@@ -109,5 +109,5 @@ export const MenuLateral: React.FC = ({ children }) => {
         {children}
       </Box>
     </>
-  );
-};
+  )
+}

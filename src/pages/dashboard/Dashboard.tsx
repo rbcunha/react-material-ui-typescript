@@ -1,5 +1,6 @@
-import { FerramentasDeDetalhe } from "../../shared/components";
-import { LayoutBaseDePagina } from "../../shared/layouts";
+/* eslint-disable react/react-in-jsx-scope */
+import { FerramentasDeDetalhe } from '../../shared/components'
+import { LayoutBaseDePagina } from '../../shared/layouts'
 
 export const Dashboard = () => {
   return (
@@ -16,5 +17,5 @@ export const Dashboard = () => {
     >
       Testando
     </LayoutBaseDePagina>
-  );
-};
+  )
+}

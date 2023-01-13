@@ -1,6 +1,6 @@
-import { Box, Button, Icon, TextField, Paper, useTheme } from "@mui/material";
+import { Box, Button, Icon, TextField, Paper, useTheme } from '@mui/material'
 
-import { Environment } from "../../environment";
+import { Environment } from '../../environment'
 
 interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
@@ -13,15 +13,15 @@ interface IFerramentasDaListagemProps {
 }
 
 export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
-  textoDaBusca = "",
+  textoDaBusca = '',
   mostrarInputBusca = false,
   aoMudarTextoDaBusca,
 
   aoClicarEmNovo,
-  textoBotaoNovo = "Novo",
+  textoBotaoNovo = 'Novo',
   mostrarBotaoNovo = true,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <Box
       gap={1}
@@ -42,7 +42,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
         />
       )}
 
-      <Box flex={1} display="flex" justifyContent={"end"}>
+      <Box flex={1} display="flex" justifyContent={'end'}>
         {mostrarBotaoNovo && (
           <Button
             color="primary"
@@ -56,5 +56,5 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
         )}
       </Box>
     </Box>
-  );
-};
+  )
+}
